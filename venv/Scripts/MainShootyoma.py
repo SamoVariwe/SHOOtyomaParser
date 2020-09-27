@@ -217,7 +217,7 @@ for pageNumber in range(startPageNumber,finishPageNumber+1):
 
     lock=asyncio.Lock()
 
-    asyncio.get_event_loop().run_until_complete(AllShowsParse(shows[1:10],lock))
+    asyncio.get_event_loop().run_until_complete(AllShowsParse(shows[1:3],lock))
 
 
 with open('test.json',"a",encoding='utf_8') as jsonFile:
