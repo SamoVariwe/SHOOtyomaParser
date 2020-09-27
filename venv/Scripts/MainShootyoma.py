@@ -189,7 +189,7 @@ async def  classClearhtmlParser(htmlClassClear:bs)->classClearHTML:
 #Тут почали
 startPageNumber=int(input('укажите первую страницу парсинга: \n'))
 finishPageNumber=int(input('укажите последнюю страницу парсинга: \n'))
-
+print(datetime.now())
 basePageUrl='https://en.myshows.me/search/all/?category=show&page='
 clearJson=open('test.json','w')
 clearJson.close()
@@ -223,5 +223,6 @@ for pageNumber in range(startPageNumber,finishPageNumber+1):
 with open('test.json',"a",encoding='utf_8') as jsonFile:
     json.dump(showsJson,jsonFile,ensure_ascii=False)
 print('всё')
+print(datetime.now())
 
 
