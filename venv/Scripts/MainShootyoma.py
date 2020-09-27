@@ -20,12 +20,6 @@ ProxyNumber=-1
 class classClearHTML():#название обусловлено структурой сайта
     pass
 
-class Seasons():
-    pass
-
-class Episode():
-    pass
-
 async def AllShowsParse(shows,lock):
     ret=await asyncio.gather(*[ShowParse(show,lock) for show in shows])
 
@@ -94,10 +88,10 @@ async def ShowParse(show,lock:asyncio.Lock):
                 episodeRef = episodeRow.find_all('a')[1].get('href')
             except IndexError:
                 episodeRef = episodeRow.find_all('a')[0].get('href')
-            # async with aiohttp.ClientSession() as episodeSession:
-            #     async with episodeSession.get(episodeRef) as response:
-            #         episodeText = await response.text()
-            episodeText=requests.get(episodeRef).text
+            async with aiohttp.ClientSession() as episodeSession:
+                async with episodeSession.get(episodeRef) as response:
+                    episodeText = await response.text()
+            #episodeText=requests.get(episodeRef).text
             episodeSoup = bs(episodeText, features='html.parser')
             episode = {}
             mainSoup = episodeSoup.find('main', {'role': 'main'})
@@ -150,6 +144,7 @@ async def ShowParse(show,lock:asyncio.Lock):
             "seasons": seasonsObjects
 
             }
+    print('Отпарсился : '+enTitle+'\n')
     async with lock:
         showsJson.append(data)
 
@@ -189,6 +184,7 @@ async def  classClearhtmlParser(htmlClassClear:bs)->classClearHTML:
 #Тут почали
 startPageNumber=int(input('укажите первую страницу парсинга: \n'))
 finishPageNumber=int(input('укажите последнюю страницу парсинга: \n'))
+print(datetime.now())
 
 basePageUrl='https://en.myshows.me/search/all/?category=show&page='
 clearJson=open('test.json','w')
@@ -217,11 +213,12 @@ for pageNumber in range(startPageNumber,finishPageNumber+1):
 
     lock=asyncio.Lock()
 
-    asyncio.get_event_loop().run_until_complete(AllShowsParse(shows[1:10],lock))
+    asyncio.get_event_loop().run_until_complete(AllShowsParse(shows[1:3],lock))
 
 
 with open('test.json',"a",encoding='utf_8') as jsonFile:
     json.dump(showsJson,jsonFile,ensure_ascii=False)
 print('всё')
+print(datetime.now())
 
 
