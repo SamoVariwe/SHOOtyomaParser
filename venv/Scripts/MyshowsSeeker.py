@@ -241,7 +241,7 @@ try:
     cursedShowsIds=json.load(cursedFile)
 except:
   print('проклятый Ясон пустой')
-  serialN=-1
+serialN = (-1)
 for i in showsIds[lowId:highId]:
   serianN+=1
   print('Осталось сериалов: '+str(showsLeft))
