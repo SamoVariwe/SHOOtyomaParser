@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7eb804-d756-4720-8ea5-d9c2211257da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/apiParralel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +82,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="apiParralel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SHOOtyomaParser" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Scripts/apiParralel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="parralelTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SHOOtyomaParser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,10 +150,12 @@
       <item itemvalue="Python.MyshowsSeeker" />
       <item itemvalue="Python.parralelTest" />
       <item itemvalue="Python.testParralel" />
+      <item itemvalue="Python.apiParralel" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MyshowsSeeker" />
+        <item itemvalue="Python.apiParralel" />
         <item itemvalue="Python.MainShootyoma" />
         <item itemvalue="Python.parralelTest" />
         <item itemvalue="Python.testParralel" />
@@ -163,50 +188,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="273" key="#xdebugger.XInspectDialog/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601210232254" />
-    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate" timestamp="1601292919386">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1982" y="70" width="1442" height="781" key="#xdebugger.evaluate" timestamp="1601306320357">
+      <screen x="1920" y="0" width="1600" height="860" />
     </state>
-    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601292919386" />
+    <state x="1982" y="70" width="1442" height="781" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601306320357" />
     <state x="627" y="118" key="CommitChangelistDialog2" timestamp="1601201034302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601201034302" />
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom" timestamp="1601297780558">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1601307654526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780558" />
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307654526" />
     <state width="1562" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="284" key="GridCell.Tab.0.center" timestamp="1601297780557">
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1601307654525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780557" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307654525" />
     <state width="1562" height="222" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="284" key="GridCell.Tab.0.left" timestamp="1601297780557">
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1601307654525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780557" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307654525" />
     <state width="1562" height="222" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="284" key="GridCell.Tab.0.right" timestamp="1601297780558">
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1601307654525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780558" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307654525" />
     <state width="1562" height="222" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1601293012372">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1601307652799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1601293012372">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307652799" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1601307652799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1601293012371">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307652799" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1601307652799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012371" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1601293012372">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307652799" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1601307652799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601307652799" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1600356722969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -237,8 +262,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py</url>
-          <line>202</line>
+          <line>248</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Scripts/apiParralel.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

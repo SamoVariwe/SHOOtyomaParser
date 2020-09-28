@@ -1,11 +1,17 @@
 import requests
+import aiohttp
+from aiohttp import ClientSession
+import asyncio
 import json
 import pickle
 from datetime import datetime
 import os
 from bs4 import BeautifulSoup as bs
+import time
+from asyncio import Lock
 
 
+batchSize=55
 postURL='https://api.myshows.me/v2/rpc/'
 baseShowUrl='https://myshows.me/view/'
 
@@ -66,7 +72,7 @@ def getGenres()->list:
     "id": 1
   }
   return requests.post(postURL,json=getGenresData).json()
-
+lock=Lock()
 
 #сохранение кортинки
 def saveShowPh(phUrl,title):
@@ -99,6 +105,19 @@ getEpisodeByIdData={
   "id": 1
 }
 
+
+
+async def getEpisodeById(id: int,allEpisodes:list):
+  global getEpisodeByIdData
+  getEpisodeByIdData['params']['id'] = id
+  session = ClientSession()
+  async with session.post('https://api.myshows.me/v2/rpc/', json=getEpisodeByIdData) as resp:
+    episode = await resp.json()
+  await session.close()
+  async with lock:
+    allEpisodes.append(episode)
+
+
 def getShow(id:int)->json:
   global getByIdData
   global getEpisodeByIdData
@@ -128,7 +147,34 @@ def getShow(id:int)->json:
   picUrl=result['image']
   showData['picture']=saveShowPh(picUrl,showData['ruTitle'])
   showData['channel']=result['network']['title']
+  episodesIds=[]
+  for episodeId in result['episodes']:
+    episodesIds.append(episodeId['id'])
+
   seasons=[]
+  loop = asyncio.get_event_loop()
+  tasks=[]
+  allEpisodes = []
+
+  batchNumber=int(len(episodesIds)/batchSize)
+  for i in range(batchNumber+1):
+    if i==batchSize:
+      for id in episodesIds[i * batchSize:]:
+        task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
+        tasks.append(task)
+      loop.run_until_complete(asyncio.wait(tasks))
+      tasks=[]
+      time.sleep(0.5)
+    else:
+      for id in episodesIds[i*batchSize:(i+1)*batchSize]:
+        task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
+        tasks.append(task)
+      loop.run_until_complete(asyncio.wait(tasks))
+      tasks = []
+      time.sleep(0.5)
+
+  print('aue')
+
 
   for seasonNumber in range(result['totalSeasons'],0,-1):
     season = {}
@@ -136,14 +182,13 @@ def getShow(id:int)->json:
     season['title']=showData['ruTitle']+': Сезон : '+str(seasonNumber)
     season['number']=seasonNumber
     isLastEpisode=True
-    for episode in result['episodes']:
-      if episode['seasonNumber']<seasonNumber:
+    for episode in allEpisodes:
+      if episode['result']['seasonNumber']<seasonNumber:
         break
-      if episode['seasonNumber']>seasonNumber:
+      if episode['result']['seasonNumber']>seasonNumber:
         continue
       ourEpisode = {}
-      getEpisodeByIdData['params']['id'] = episode['id']
-      anotherEpisode = requests.post(postURL, json=getEpisodeByIdData).json()['result']
+      anotherEpisode=episode['result']
       if isLastEpisode==True:
         try:
           season['finishDate']=anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
@@ -185,9 +230,10 @@ showsIds=[]#список id всех сериков
 allShows=[]
 showsIds=GetShowIdsFromFile('showsIds.data')
 genresIdToTitle=getGenres()
-print(datetime.now())
 lowId=int(input('нижняя граница среза: '))
 highId=int(input('верхняя граница среза (не включающая) : '))
+print(datetime.now())
+
 showsLeft=highId-lowId
 for i in showsIds[lowId:highId]:
   print('Осталось сериалов: '+str(showsLeft))
