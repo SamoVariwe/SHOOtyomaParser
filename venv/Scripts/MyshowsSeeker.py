@@ -11,7 +11,7 @@ import time
 from asyncio import Lock
 
 
-batchSize=55
+batchSize=53
 postURL='https://api.myshows.me/v2/rpc/'
 baseShowUrl='https://myshows.me/view/'
 
@@ -76,7 +76,7 @@ lock=Lock()
 
 #сохранение кортинки
 def saveShowPh(phUrl,title):
-  picName = title.replace(' ', '_').replace('*','_') + '_MAIN.jpg'
+  picName = title.replace(' ', '_').replace('*','_').replace(':','-').replace('/','-').replace('\\','-') + 'MAIN.jpg'
   image=requests.get(phUrl).content
   with open(os.getcwd() + '\\pics\\' + picName, 'wb') as saveFile:
     saveFile.write(image)
@@ -176,9 +176,6 @@ def getShow(id:int)->json:
       tasks = []
       time.sleep(0.5)
 
-
-
-
   for seasonNumber in range(result['totalSeasons'],0,-1):
     season = {}
     season['episodes']=[]
@@ -250,4 +247,3 @@ print(datetime.now())
 jsonName=os.getcwd()+'\\jsons\\'+'allShows'+str(lowId)+'_'+str(highId)+'.json'
 jsonFile=open(jsonName,'w')
 json.dump(allShows,jsonFile)
-print('aue')
