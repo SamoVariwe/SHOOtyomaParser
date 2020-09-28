@@ -2,82 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7eb804-d756-4720-8ea5-d9c2211257da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/13_Reasons_Why_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/2_Broke_Girls_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/American_Gods_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/American_Horror_Story_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Arrow_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Black_Mirror_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Breaking_Bad_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Californication_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Castle_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Charmed_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Chernobyl_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Dark_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Desperate_Housewives_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Dexter_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Doctor_Who_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Elementary_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Fargo_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Firefly_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Friends_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Game_of_Thrones_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Glee_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Gossip_Girl_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Gotham_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Gravity_Falls_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Grimm_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Hannibal_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Heroes_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/House_M.D._MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/How_I_Met_Your_Mother_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/How_to_Get_Away_with_Murder_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Lie_to_Me_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Limitless_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Lost_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Lucifer_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Marvel's_Daredevil_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Marvel's_Jessica_Jones_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Misfits_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Mr._Robot_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Once_Upon_a_Time_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Orange_Is_the_New_Black_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Peaky_Blinders_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Pretty_Little_Liars_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Prison_Break_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Rick_and_Morty_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Riverdale_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Scrubs_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Sex_Education_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Sex_and_the_City_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Shameless_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Sherlock_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Skins_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Stranger_Things_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Suits_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Supernatural_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Teen_Wolf_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_100_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Big_Bang_Theory_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Flash_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Legend_of_Korra_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Mentalist_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Originals_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Simpsons_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Vampire_Diaries_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Walking_Dead_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/The_Witcher_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/True_Detective_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Twin_Peaks_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Under_the_Dome_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Vikings_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Westworld_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/White_Collar_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Wilfred_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/_MAIN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Интерны__MAIN.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Американская_история_ужасов_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Американская_история_ужасов_MAIN.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Отбросы_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Отбросы_MAIN.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Теория_большого_взрыва_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Теория_большого_взрыва_MAIN.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Шерлок_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Шерлок_MAIN.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,58 +170,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="273" key="#xdebugger.XInspectDialog/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601210232254" />
-    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate" timestamp="1601243207362">
+    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate" timestamp="1601292919386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601243207362" />
+    <state x="281" y="140" width="1442" height="781" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601292919386" />
     <state x="627" y="118" key="CommitChangelistDialog2" timestamp="1601201034302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601201034302" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1601245849087">
+    <state width="1899" height="284" key="GridCell.Tab.0.bottom" timestamp="1601297780558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245849087" />
+    <state width="1899" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780558" />
     <state width="1562" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1601245849087">
+    <state width="1899" height="284" key="GridCell.Tab.0.center" timestamp="1601297780557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245849087" />
+    <state width="1899" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780557" />
     <state width="1562" height="222" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1601245849087">
+    <state width="1899" height="284" key="GridCell.Tab.0.left" timestamp="1601297780557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245849087" />
+    <state width="1899" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780557" />
     <state width="1562" height="222" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1601245849087">
+    <state width="1899" height="284" key="GridCell.Tab.0.right" timestamp="1601297780558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245849087" />
+    <state width="1899" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601297780558" />
     <state width="1562" height="222" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@1920.0.1600.860" timestamp="1599572589842" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1601245869929">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1601293012372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245869929" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1601245869929">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1601293012372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245869929" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1601245869929">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1601293012371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245869929" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1601245869929">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012371" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1601293012372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601245869929" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293012372" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1600356722969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1600356722969" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1601195255357">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1601288619673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601195255357" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601288619673" />
     <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601201041782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -302,20 +234,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="602" y="193" width="729" height="715" key="dock-window-2/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601067030918" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601216088943">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601293542229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601216088943" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1601293542229" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py</url>
-          <line>192</line>
-          <option name="timeStamp" value="37" />
+          <line>202</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>

@@ -154,8 +154,10 @@ def getShow(id:int)->json:
 
       ourEpisode['number']=anotherEpisode['shortName']
       ourEpisode['title']=anotherEpisode['title']
-
-      ourEpisode['rating']=anotherEpisode['rating']['rating']
+      try:
+        ourEpisode['rating']=anotherEpisode['rating']['rating']
+      except:
+        pass
       try:
         ourEpisode['date']=anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
       except:
@@ -184,10 +186,18 @@ allShows=[]
 showsIds=GetShowIdsFromFile('showsIds.data')
 genresIdToTitle=getGenres()
 print(datetime.now())
-for i in showsIds[0:10]:
+lowId=int(input('нижняя граница среза: '))
+highId=int(input('верхняя граница среза (не включающая) : '))
+showsLeft=highId-lowId
+for i in showsIds[lowId:highId]:
+  print('Осталось сериалов: '+str(showsLeft))
   data = getShow(i)
   allShows.append(data)
+  showsLeft-=1
 
 
 print(datetime.now())
+jsonName=os.getcwd()+'\\jsons\\'+'allShows'+str(lowId)+'_'+str(highId)+'.json'
+jsonFile=open(jsonName,'w')
+json.dump(allShows,jsonFile)
 print('aue')
