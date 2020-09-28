@@ -236,9 +236,11 @@ print(datetime.now())
 
 showsLeft=highId-lowId
 cursedShowsIds=[]
-with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','r') as cursedFile:
-  cursedShowsIds=json.load(cursedFile)
-
+try:
+  with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','r') as cursedFile:
+    cursedShowsIds=json.load(cursedFile)
+except:
+  print('проклятый Ясон пустой')
 for i in showsIds[lowId:highId]:
   print('Осталось сериалов: '+str(showsLeft))
   try:
