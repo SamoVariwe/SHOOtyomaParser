@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7eb804-d756-4720-8ea5-d9c2211257da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/MyshowsSeeker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Американская_история_ужасов_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Американская_история_ужасов_MAIN.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Отбросы_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Отбросы_MAIN.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Теория_большого_взрыва_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Теория_большого_взрыва_MAIN.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pics/Шерлок_MAIN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pics/Шерлок_MAIN.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
