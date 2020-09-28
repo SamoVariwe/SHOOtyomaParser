@@ -76,7 +76,7 @@ lock=Lock()
 
 #сохранение кортинки
 def saveShowPh(phUrl,title):
-  picName = title.replace(' ', '_').replace('*','_').replace(':','-').replace('/','-').replace('\\','-') + 'MAIN.jpg'
+  picName = title.replace(' ', '_').replace('*','_').replace(':','-').replace('/','-').replace('\t','').replace('\n','') + 'MAIN.jpg'
   image=requests.get(phUrl).content
   with open(os.getcwd() + '\\pics\\' + picName, 'wb') as saveFile:
     saveFile.write(image)
@@ -235,10 +235,18 @@ highId=int(input('верхняя граница среза (не включаю�
 print(datetime.now())
 
 showsLeft=highId-lowId
+cursedShowsIds=[]
+with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','r') as cursedFile:
+  cursedShowsIds=json.load(cursedFile)
+
 for i in showsIds[lowId:highId]:
   print('Осталось сериалов: '+str(showsLeft))
+  try:
+   data = getShow(i)
+  except:
+    cursedShowsIds.append(i)
+    continue
 
-  data = getShow(i)
   allShows.append(data)
   showsLeft-=1
 
@@ -247,3 +255,6 @@ print(datetime.now())
 jsonName=os.getcwd()+'\\jsons\\'+'allShows'+str(lowId)+'_'+str(highId)+'.json'
 jsonFile=open(jsonName,'w')
 json.dump(allShows,jsonFile)
+with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','w') as cursedFile:
+  json.dump(cursedShowsIds,cursedFile)
+
