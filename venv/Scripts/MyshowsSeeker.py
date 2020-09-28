@@ -253,8 +253,8 @@ for i in showsIds[lowId:highId]:
   except:
     print('Ошибочка случилась, id сохранен в файлик')
     cursedShowsIds.append(i)
+    showsLeft -= 1
     continue
-
 
   allShows.append(data)
   if serialN%100==0:
