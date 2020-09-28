@@ -158,11 +158,14 @@ def getShow(id:int)->json:
 
   batchNumber=int(len(episodesIds)/batchSize)
   for i in range(batchNumber+1):
-    if i==batchSize:
-      for id in episodesIds[i * batchSize:]:
-        task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
-        tasks.append(task)
-      loop.run_until_complete(asyncio.wait(tasks))
+    if i==batchNumber:
+      try:
+        for id in episodesIds[i * batchSize:]:
+          task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
+          tasks.append(task)
+        loop.run_until_complete(asyncio.wait(tasks))
+      except:
+        pass
       tasks=[]
       time.sleep(0.5)
     else:
@@ -237,6 +240,7 @@ print(datetime.now())
 showsLeft=highId-lowId
 for i in showsIds[lowId:highId]:
   print('Осталось сериалов: '+str(showsLeft))
+
   data = getShow(i)
   allShows.append(data)
   showsLeft-=1
