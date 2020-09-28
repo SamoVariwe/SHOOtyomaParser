@@ -241,19 +241,38 @@ try:
     cursedShowsIds=json.load(cursedFile)
 except:
   print('проклятый Ясон пустой')
+  serialN=0
 for i in showsIds[lowId:highId]:
+  serianN+=1
   print('Осталось сериалов: '+str(showsLeft))
+
+
   try:
    data = getShow(i)
   except:
+    print('Ошибочка случилась, id сохранен в файлик')
     cursedShowsIds.append(i)
     continue
 
+
   allShows.append(data)
+  if serialN%100==0:
+    try:
+      os.remove(jsonintermediateName)
+    except:
+      pass
+    jsonintermediateName = os.getcwd() + '\\jsons\\' + 'allShows' + str(lowId) + '_' + str(serialN) + '.json'
+    jsonFile = open(jsonintermediateName, 'w')
+    json.dump(allShows, jsonFile)
+    jsonFile.close()
   showsLeft-=1
 
 
 print(datetime.now())
+try:
+  os.remove(jsonintermediateName)
+except:
+  pass
 jsonName=os.getcwd()+'\\jsons\\'+'allShows'+str(lowId)+'_'+str(highId)+'.json'
 jsonFile=open(jsonName,'w')
 json.dump(allShows,jsonFile)
