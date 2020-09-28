@@ -249,6 +249,7 @@ for i in showsIds[lowId:highId]:
 
 
   try:
+
    data = getShow(i)
   except:
     print('Ошибочка случилась, id сохранен в файлик')
@@ -257,7 +258,7 @@ for i in showsIds[lowId:highId]:
       with open(os.getcwd() + '\\jsons\\' + 'cursedIDS.json', 'r+') as cursedFile:
         cursedShowsIds = json.load(cursedFile)
         cursedShowsIds.append(i)
-        cursedFile.truncate()
+        cursedFile.truncate(0)
         json.dump(cursedShowsIds,cursedFile)
     except:
       cursedShowsIds.append(i)
