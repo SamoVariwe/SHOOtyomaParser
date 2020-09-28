@@ -173,7 +173,7 @@ def getShow(id:int)->json:
       tasks = []
       time.sleep(0.5)
 
-  print('aue')
+
 
 
   for seasonNumber in range(result['totalSeasons'],0,-1):
