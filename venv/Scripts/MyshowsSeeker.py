@@ -63,6 +63,11 @@ def GetShowIdsFromFile(PickleFileName)->list:
     print('No such file -> Getting ids from api')
     return GetShowsIdsAPI(PickleFileName)
 
+def GetCursedIdsFromFile(cursedPath):
+  with open(cursedPath,'r') as file:
+    return  set(json.load(file))
+
+
 #Ответ на шоу храни т id жанров, посему получим словарь id-жанр
 def getGenres()->list:
   getGenresData = {
@@ -145,8 +150,14 @@ def getShow(id:int)->json:
   showData['totalDuration']=result['runtimeTotal']
   showData['episodeDuration']=result['runtime']
   picUrl=result['image']
-  showData['picture']=saveShowPh(picUrl,showData['ruTitle'])
-  showData['channel']=result['network']['title']
+  try:
+    showData['picture']=saveShowPh(picUrl,showData['ruTitle'])
+  except:
+    showData['picture']='No Picture'
+  try:
+    showData['channel']=result['network']['title']
+  except:
+    showData['channel']='Нет информации о канале'
   episodesIds=[]
   for episodeId in result['episodes']:
     episodesIds.append(episodeId['id'])
@@ -224,19 +235,33 @@ def getShow(id:int)->json:
   showData['seasons']=seasons
   return showData
 
+mode=input('Проклятый режим? c / anyKey')
+
 
 
 showsIds=[]#список id всех сериков
 allShows=[]
-showsIds=GetShowIdsFromFile('showsIds.data')
+if 'c' in mode:
+  showsIds=GetCursedIdsFromFile('cursedIDS.json')
+  print('Проклятых айдишек осталось: '+str(len(showsIds)))
+  fileSubName='allCursedShows'
+  lowId = int(input('нижняя граница среза: '))
+  highId = int(input('верхняя граница среза (не включающая) : '))
+
+else:
+  showsIds=GetShowIdsFromFile('showsIds.data')
+  lowId = int(input('нижняя граница среза: '))
+  highId = int(input('верхняя граница среза (не включающая) : '))
+  fileSubName='allShows'
+
 genresIdToTitle=getGenres()
-lowId=int(input('нижняя граница среза: '))
-highId=int(input('верхняя граница среза (не включающая) : '))
+
 print(datetime.now())
 serialN = -1
 
 showsLeft=highId-lowId
 cursedShowsIds=[]
+normallyParsedCursedSHows=[]
 try:
   with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','r') as cursedFile:
     cursedShowsIds=json.load(cursedFile)
@@ -247,9 +272,7 @@ for i in showsIds[lowId:highId]:
   serialN+=1
   print('Осталось сериалов: '+str(showsLeft))
 
-
   try:
-
    data = getShow(i)
   except:
     print('Ошибочка случилась, id сохранен в файлик')
@@ -257,7 +280,8 @@ for i in showsIds[lowId:highId]:
     try:
       with open(os.getcwd() + '\\jsons\\' + 'cursedIDS.json', 'r+') as cursedFile:
         cursedShowsIds = json.load(cursedFile)
-        cursedShowsIds.append(i)
+        if i not in cursedShowsIds:
+          cursedShowsIds.append(i)
         cursedFile.truncate(0)
         json.dump(cursedShowsIds,cursedFile)
     except:
@@ -274,19 +298,30 @@ for i in showsIds[lowId:highId]:
       os.remove(jsonintermediateName)
     except:
       pass
-    jsonintermediateName = os.getcwd() + '\\jsons\\' + 'allShows' + str(lowId) + '_' + str(serialN) + '.json'
+
+    jsonintermediateName = os.getcwd() + '\\jsons\\' + fileSubName + str(lowId) + '_' + str(serialN) + '.json'
     jsonFile = open(jsonintermediateName, 'w')
     json.dump(allShows, jsonFile)
     jsonFile.close()
   showsLeft-=1
+  normallyParsedCursedSHows.append(i)
+
 
 
 print(datetime.now())
+restShowsIds=[]
+for id in showsIds:
+  if id not in normallyParsedCursedSHows:
+    restShowsIds.append(id)
+with open('cursedIDS.json','w')as file:
+  json.dump(restShowsIds,file)
+
+
 try:
   os.remove(jsonintermediateName)
 except:
   pass
-jsonName=os.getcwd()+'\\jsons\\'+'allShows'+str(lowId)+'_'+str(highId)+'.json'
+jsonName=os.getcwd()+'\\jsons\\'+fileSubName+str(lowId)+'_'+str(highId)+'.json'
 jsonFile=open(jsonName,'w')
 json.dump(allShows,jsonFile)
 with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','w') as cursedFile:
