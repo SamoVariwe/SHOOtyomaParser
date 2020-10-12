@@ -220,6 +220,7 @@ def getShow(id:int)->json:
         try:
           ourEpisode['date'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
         except:
+          ourEpisode['date']='noDate'
           pass
         ourEpisode['imageURL'] = anotherEpisode['image']
 
@@ -233,6 +234,8 @@ def getShow(id:int)->json:
       maxEpisodeNumber=max(episodeNumbers)
       minEpisodeNumber=min(episodeNumbers)
       for episode in season['episodes']:
+        if episode['date']=='noDate':
+          continue
         if episode['episodeNumber']==maxEpisodeNumber:
           season['finishDate']=episode['date'][0:episode['date'].find('T')]
           del(episode['episodeNumber'])
