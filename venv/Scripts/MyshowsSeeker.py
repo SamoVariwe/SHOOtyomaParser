@@ -81,12 +81,13 @@ def getGenres()->list:
 lock=Lock()
 
 #сохранение кортинки
-def saveShowPh(phUrl,title):
+def saveShowPh(phUrl,title,ShouldSavePh=True):
   picName = title.replace(' ', '_').replace('*','_').replace(':','-').replace('/','-').replace('\t','').replace('\n','') + 'MAIN.jpg'
-  image=requests.get(phUrl).content
-  with open(os.getcwd() + '\\pics\\' + picName, 'wb') as saveFile:
-    saveFile.write(image)
-    saveFile.close()
+  if ShouldSavePh:
+    image=requests.get(phUrl).content
+    with open(os.getcwd() + '\\pics\\' + picName, 'wb') as saveFile:
+      saveFile.write(image)
+      saveFile.close()
   return picName
 
 #получение кокнретных сериков по id
@@ -155,7 +156,7 @@ def getShow(id:int)->json:
   showData['episodeDuration']=result['runtime']
   picUrl=result['image']
   try:
-    showData['picture']=saveShowPh(picUrl,showData['ruTitle'])
+    showData['picture']=saveShowPh(picUrl,showData['ruTitle'],ShouldSavePh=False)
   except:
     showData['picture']='No Picture'
   try:
@@ -199,22 +200,18 @@ def getShow(id:int)->json:
       season['title'] = showData['ruTitle'] + ': Сезон : ' + str(seasonNumber)
       season['number'] = seasonNumber
       isLastEpisode = True
+      episodeNumbers = []
       for episode in allEpisodes:
-        if episode['result']['seasonNumber'] < seasonNumber:
-          break
-        if episode['result']['seasonNumber'] > seasonNumber:
-          continue
+
         ourEpisode = {}
         anotherEpisode = episode['result']
-        if isLastEpisode == True:
-          try:
-            season['finishDate'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
-          except:
-            pass
-
-          isLastEpisode = False
+        if anotherEpisode['seasonNumber']!=seasonNumber:
+          continue
+        episodeNumbers.append(anotherEpisode['episodeNumber'])
+        #вот это надо профиксить
 
         ourEpisode['number'] = anotherEpisode['shortName']
+        ourEpisode['episodeNumber']=anotherEpisode['episodeNumber']
         ourEpisode['title'] = anotherEpisode['title']
         try:
           ourEpisode['rating'] = anotherEpisode['rating']['rating']
@@ -225,23 +222,32 @@ def getShow(id:int)->json:
         except:
           pass
         ourEpisode['imageURL'] = anotherEpisode['image']
-        a = anotherEpisode['episodeNumber']
-        if anotherEpisode['episodeNumber'] <= 1:
-          try:
-            season['startDate'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
-          except:
-            pass
+
 
         if anotherEpisode['episodeNumber'] == 0:
           ourEpisode['isSpecial'] = True
         else:
           ourEpisode['isSpecial'] = False
         season['episodes'].append(ourEpisode)
+      LastEpisode=None
+      maxEpisodeNumber=max(episodeNumbers)
+      minEpisodeNumber=min(episodeNumbers)
+      for episode in season['episodes']:
+        if episode['episodeNumber']==maxEpisodeNumber:
+          season['finishDate']=episode['date'][0:episode['date'].find('T')]
+          del(episode['episodeNumber'])
+          continue
+        if episode['episodeNumber']==minEpisodeNumber:
+          season['startDate'] = episode['date'][0:episode['date'].find('T')]
+          del (episode['episodeNumber'])
+          continue
+        del (episode['episodeNumber'])
+
+
       seasons.append(season)
     showData['seasons'] = seasons
   else:
     showData['seasons']='No seasons'
-
 
   return showData
 
