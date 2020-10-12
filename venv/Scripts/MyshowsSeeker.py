@@ -194,7 +194,11 @@ def getShow(id:int)->json:
     totalSeasons=result['totalSeasons']
     if totalSeasons == None:
       totalSeasons=1
-    for seasonNumber in range(totalSeasons, 0, -1):
+    seasonNumbers=[]
+    for episode in allEpisodes:
+      seasonNumbers.append(episode['result']['seasonNumber'])
+    seasonNumbers=list(set(seasonNumbers))
+    for seasonNumber in seasonNumbers:
       season = {}
       season['episodes'] = []
       season['title'] = showData['ruTitle'] + ': Сезон : ' + str(seasonNumber)
@@ -292,7 +296,11 @@ for i in showsIds[lowId:highId]:
   print('Осталось сериалов: '+str(showsLeft))
 
   try:
+
+
    data = getShow(i)
+
+
   except BaseException as err:
     print(err)
     print('Ошибочка случилась, id сохранен в файлик')
