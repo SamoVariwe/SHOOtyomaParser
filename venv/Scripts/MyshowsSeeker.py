@@ -9,6 +9,7 @@ import os
 from bs4 import BeautifulSoup as bs
 import time
 from asyncio import Lock
+import sys
 
 
 batchSize=53
@@ -65,7 +66,7 @@ def GetShowIdsFromFile(PickleFileName)->list:
 
 def GetCursedIdsFromFile(cursedPath):
   with open(cursedPath,'r') as file:
-    return  set(json.load(file))
+    return  list(set(json.load(file)))
 
 
 #Ответ на шоу храни т id жанров, посему получим словарь id-жанр
@@ -142,11 +143,14 @@ def getShow(id:int)->json:
   showData['description']=result['description']
   genresIds=result['genreIds']
   showGenres=[]
-  for id in genresIds:
-    for genre in genresIdToTitle['result']:
-      if genre['id']==id:
-        showGenres.append(genre['title'])
-  showData['genres']=showGenres
+  if len(genresIds) > 0:
+    for id in genresIds:
+      for genre in genresIdToTitle['result']:
+        if genre['id']==id:
+          showGenres.append(genre['title'])
+    showData['genres']=showGenres
+  else:
+    showData['genres']='No genres'
   showData['totalDuration']=result['runtimeTotal']
   showData['episodeDuration']=result['runtime']
   picUrl=result['image']
@@ -159,80 +163,86 @@ def getShow(id:int)->json:
   except:
     showData['channel']='Нет информации о канале'
   episodesIds=[]
-  for episodeId in result['episodes']:
-    episodesIds.append(episodeId['id'])
+  if result['episodes'] != None:
+    for episodeId in result['episodes']:
+      episodesIds.append(episodeId['id'])
+    seasons = []
+    loop = asyncio.get_event_loop()
+    tasks = []
+    allEpisodes = []
 
-  seasons=[]
-  loop = asyncio.get_event_loop()
-  tasks=[]
-  allEpisodes = []
-
-  batchNumber=int(len(episodesIds)/batchSize)
-  for i in range(batchNumber+1):
-    if i==batchNumber:
-      try:
-        for id in episodesIds[i * batchSize:]:
+    batchNumber = int(len(episodesIds) / batchSize)
+    for i in range(batchNumber + 1):
+      if i == batchNumber:
+        try:
+          for id in episodesIds[i * batchSize:]:
+            task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
+            tasks.append(task)
+          loop.run_until_complete(asyncio.wait(tasks))
+        except:
+          pass
+        tasks = []
+        time.sleep(0.5)
+      else:
+        for id in episodesIds[i * batchSize:(i + 1) * batchSize]:
           task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
           tasks.append(task)
         loop.run_until_complete(asyncio.wait(tasks))
-      except:
-        pass
-      tasks=[]
-      time.sleep(0.5)
-    else:
-      for id in episodesIds[i*batchSize:(i+1)*batchSize]:
-        task = asyncio.ensure_future(getEpisodeById(id, allEpisodes))
-        tasks.append(task)
-      loop.run_until_complete(asyncio.wait(tasks))
-      tasks = []
-      time.sleep(0.5)
+        tasks = []
+        time.sleep(0.5)
+    totalSeasons=result['totalSeasons']
+    if totalSeasons == None:
+      totalSeasons=1
+    for seasonNumber in range(totalSeasons, 0, -1):
+      season = {}
+      season['episodes'] = []
+      season['title'] = showData['ruTitle'] + ': Сезон : ' + str(seasonNumber)
+      season['number'] = seasonNumber
+      isLastEpisode = True
+      for episode in allEpisodes:
+        if episode['result']['seasonNumber'] < seasonNumber:
+          break
+        if episode['result']['seasonNumber'] > seasonNumber:
+          continue
+        ourEpisode = {}
+        anotherEpisode = episode['result']
+        if isLastEpisode == True:
+          try:
+            season['finishDate'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
+          except:
+            pass
 
-  for seasonNumber in range(result['totalSeasons'],0,-1):
-    season = {}
-    season['episodes']=[]
-    season['title']=showData['ruTitle']+': Сезон : '+str(seasonNumber)
-    season['number']=seasonNumber
-    isLastEpisode=True
-    for episode in allEpisodes:
-      if episode['result']['seasonNumber']<seasonNumber:
-        break
-      if episode['result']['seasonNumber']>seasonNumber:
-        continue
-      ourEpisode = {}
-      anotherEpisode=episode['result']
-      if isLastEpisode==True:
+          isLastEpisode = False
+
+        ourEpisode['number'] = anotherEpisode['shortName']
+        ourEpisode['title'] = anotherEpisode['title']
         try:
-          season['finishDate']=anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
+          ourEpisode['rating'] = anotherEpisode['rating']['rating']
         except:
           pass
-
-        isLastEpisode=False
-
-      ourEpisode['number']=anotherEpisode['shortName']
-      ourEpisode['title']=anotherEpisode['title']
-      try:
-        ourEpisode['rating']=anotherEpisode['rating']['rating']
-      except:
-        pass
-      try:
-        ourEpisode['date']=anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
-      except:
-        pass
-      ourEpisode['imageURL']=anotherEpisode['image']
-      a = anotherEpisode['episodeNumber']
-      if anotherEpisode['episodeNumber'] <= 1:
         try:
-          season['startDate'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
+          ourEpisode['date'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
         except:
           pass
+        ourEpisode['imageURL'] = anotherEpisode['image']
+        a = anotherEpisode['episodeNumber']
+        if anotherEpisode['episodeNumber'] <= 1:
+          try:
+            season['startDate'] = anotherEpisode['airDate'][0:anotherEpisode['airDate'].find('T')]
+          except:
+            pass
 
-      if anotherEpisode['episodeNumber']==0:
-        ourEpisode['isSpecial']=True
-      else:
-        ourEpisode['isSpecial']=False
-      season['episodes'].append(ourEpisode)
-    seasons.append(season)
-  showData['seasons']=seasons
+        if anotherEpisode['episodeNumber'] == 0:
+          ourEpisode['isSpecial'] = True
+        else:
+          ourEpisode['isSpecial'] = False
+        season['episodes'].append(ourEpisode)
+      seasons.append(season)
+    showData['seasons'] = seasons
+  else:
+    showData['seasons']='No seasons'
+
+
   return showData
 
 mode=input('Проклятый режим? c / anyKey')
@@ -274,7 +284,8 @@ for i in showsIds[lowId:highId]:
 
   try:
    data = getShow(i)
-  except:
+  except BaseException as err:
+    print(err)
     print('Ошибочка случилась, id сохранен в файлик')
 
     try:
@@ -323,7 +334,9 @@ except:
   pass
 jsonName=os.getcwd()+'\\jsons\\'+fileSubName+str(lowId)+'_'+str(highId)+'.json'
 jsonFile=open(jsonName,'w')
-json.dump(allShows,jsonFile)
+str=json.dumps(allShows,indent=4)
+json.dump(allShows,jsonFile,indent=4)
+jsonFile.close()
 with open(os.getcwd()+'\\jsons\\'+'cursedIDS.json','w') as cursedFile:
   json.dump(cursedShowsIds,cursedFile)
 
